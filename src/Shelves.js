@@ -16,8 +16,6 @@ class Shelves extends Component {
 	render(){
 		const {title, books, onMoveBook} = this.props
 
-
-
 		return(
         		<div className="bookshelf">
           			<h2 className="bookshelf-title">{title}</h2>
@@ -48,6 +46,3 @@ class Shelves extends Component {
 }
 
 export default Shelves
-
-
-

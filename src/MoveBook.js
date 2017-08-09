@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 //component for moving books from one section to another
-function MoveBook(props) {
-	return (
+const MoveBook = (props) => (
+
 		<div className="book-shelf-changer">
             <select value={props.shelf} onChange={props.newShelf}>
                 <option value="none" disabled>Move to...</option>
@@ -13,9 +13,7 @@ function MoveBook(props) {
                 <option value="none">None</option>
             </select>
         </div>
-
-		)
-}
+)
 
 MoveBook.propTypes = {
     shelf: PropTypes.string.isRequired,

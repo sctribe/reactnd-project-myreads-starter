@@ -28,20 +28,20 @@ class SearchPage extends Component {
 	}
 
 	//match which shelf the book is on on the front and search pages
-	MatchStateInSearch = (resultBooks, books) => {
-		const result= resultBooks.map((book)=> {
+	matchStateInSearch = (resultBooks, books) => {
+			resultBooks.map((book)=> {
 			const searchedBook = book
 			searchedBook.shelf = this.bookOnShelf(books,book)
 			return searchedBook
 		})
-		this.setState({resultBooks: result})
+		this.setState({resultBooks})
 	}
 
 	//update search results. Only 20 results are shown per API documentation
 	updateQuery = (query) => {
         this.setState({ query: query.trim() })
 		if(query){
-            BooksAPI.search(query).then((resultBooks) => this.MatchStateInSearch(resultBooks, this.props.books))
+            BooksAPI.search(query).then((resultBooks) => this.matchStateInSearch(resultBooks, this.props.books))
 		}
     }
 
@@ -50,7 +50,7 @@ class SearchPage extends Component {
         this.props.onMoveBook(e, book)
         BooksAPI.update(book, e.target.value).then((res) => {
             BooksAPI.getAll().then((books) => {
-                this.MatchStateInSearch(this.state.resultBooks, books)
+                this.matchStateInSearch(this.state.resultBooks, books)
             })
         })
     }
@@ -68,7 +68,7 @@ class SearchPage extends Component {
 
               </div>
             </div>
-            if(resultBooks){
+            {resultBooks &&(
             <div className="search-books-results">
              <ol className="books-grid">
             				{resultBooks.map((book)=> (
@@ -85,7 +85,7 @@ class SearchPage extends Component {
               				))}
       					</ol>
           			</div>
-            	}
+            	)}
           </div>
 
 
