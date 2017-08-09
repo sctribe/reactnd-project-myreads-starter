@@ -1,7 +1,7 @@
 ## About
 
 MyReads is a ReactJS project that is part of the Udacity React Nanodegree program. The application creates 3 book shelves that let you organize a list of books as Read, Want to Read, or Currently Reading. A search function is provided to search for other books to add the 3 shelves.
-```
+
 ## Instructions
 
 1. Clone this repo.
